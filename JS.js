@@ -11,4 +11,48 @@
 // 7. Program a leaderboard that saves user's scores and initials
         //-Find out if you can use a prompt to assign a value to a variable and then to use a second prompt to assign that variable sub-strings
 
-console.log(questions);
+var displayQuestionEl = document.querySelector(".display-questions")
+var timerEl = document.querySelector(".timer")
+var resultsEl = document.querySelector(".results")
+
+var mainDisplay = document.createElement("h3");
+
+var startButton = document.createElement("button");
+
+var secondsLeft = 60;
+var questionIndex = 0;
+
+
+
+
+function titlePage() {
+  mainDisplay.textContent = "Press the button to begin the quiz"
+  startButton.textContent = "Begin"
+  displayQuestionEl.append(mainDisplay, startButton)
+}
+
+
+function quizBegin() {
+    showTimer();
+
+}
+
+function showTimer() {
+  timerEl.textContent = secondsLeft;
+
+  var questionTimer = setInterval(function() {
+    secondsLeft--
+  timerEl.textContent = secondsLeft;
+  if (secondsLeft <= 0){
+      clearInterval(questionTimer);
+  }
+  }, 1 * 1000)
+}
+
+function nextQuestion() {
+
+}
+
+startButton.addEventListener("click", quizBegin)
+
+titlePage();
