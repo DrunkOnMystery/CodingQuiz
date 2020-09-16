@@ -21,6 +21,7 @@ var startButton = document.createElement("button");
 
 var secondsLeft = 60;
 var questionIndex = 0;
+var questionTimer;
 
 
 
@@ -39,7 +40,7 @@ function quizBegin() {
 function showTimer() {
   timerEl.textContent = secondsLeft;
 
-  var questionTimer = setInterval(function() {
+   questionTimer = setInterval(function() {
     secondsLeft--
   timerEl.textContent = secondsLeft;
   if (secondsLeft <= 0){
@@ -105,6 +106,7 @@ function checkAnswer() {
 }
 
 function endGame() {
+
   clearInterval(questionTimer);
   finalScore = timerEl.innerText;
   console.log(finalScore);
