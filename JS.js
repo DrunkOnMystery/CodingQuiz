@@ -31,11 +31,9 @@ function titlePage() {
   displayQuestionEl.append(mainDisplay, startButton)
 }
 
-
 function quizBegin() {
     showTimer();
     nextQuestion();
-
 }
 
 function showTimer() {
@@ -47,6 +45,7 @@ function showTimer() {
   if (secondsLeft <= 0){
     clearInterval(questionTimer);
     secondsLeft = 0;
+    endGame();
   }
   }, 1 * 1000)
 }
@@ -80,16 +79,17 @@ function nextQuestion() {
 
 
 function checkAnswer() {
-
   //check for right answer
 
   var answerText = event.target.textContent;
   console.log(answerText);
   if (answerText === questions[questionIndex].answer) {
-    console.log("Correct");}
+    console.log("Correct");
+    resultsEl.textContent = "Correct";}
 
   else {
     console.log("Incorrect");
+    resultsEl.textContent = "Incorrect";
     secondsLeft = (secondsLeft - 5)
   }
 
@@ -105,13 +105,24 @@ function checkAnswer() {
 }
 
 function endGame() {
-  
+  clearInterval(questionTimer);
   finalScore = timerEl.innerText;
   console.log(finalScore);
   alert("Congratulations! You've completed the quiz!")
-  alert("Your final score was " + finalScore + "!")
+  displayQuestionEl.textContent = "";
+  resultsEl.textContent = "";
+  timerEl.textContent = "";
+  mainDisplay.textContent = ("Final Score: " + finalScore);
+  displayQuestionEl.append(mainDisplay, resultsEl, timerEl);
+
+
+  if (finalScore > 0) {
+  alert("Your final score was " + finalScore + "!");
 }
- 
+  else {
+    alert("Your final score was 0. Please try again.");
+  }
+}
 
 
 startButton.addEventListener("click", quizBegin)
