@@ -110,7 +110,7 @@ function endGame() {
   clearInterval(questionTimer);
   finalScore = timerEl.innerText;
   console.log(finalScore);
-  alert("Congratulations! You've completed the quiz!")
+ 
   displayQuestionEl.textContent = "";
   resultsEl.textContent = "";
   timerEl.textContent = "";
@@ -119,9 +119,11 @@ function endGame() {
 
 
   if (finalScore > 0) {
+  alert("Congratulations! You've completed the quiz!")
   alert("Your final score was " + finalScore + "!");
 }
   else {
+    alert("You're out of time.")
     alert("Your final score was 0. Please try again.");
   }
 }
