@@ -45,12 +45,14 @@ function showTimer() {
     secondsLeft--
   timerEl.textContent = secondsLeft;
   if (secondsLeft <= 0){
-      clearInterval(questionTimer);
+    clearInterval(questionTimer);
+    secondsLeft = 0;
   }
   }, 1 * 1000)
 }
 
 function nextQuestion() {
+
   var currentQuestion = questions[questionIndex];
 
   console.log(currentQuestion);
@@ -73,8 +75,9 @@ function nextQuestion() {
 
     }
     displayQuestionEl.append(answerContainer);
- 
-}
+  
+  }
+
 
 function checkAnswer() {
 
@@ -90,16 +93,24 @@ function checkAnswer() {
     secondsLeft = (secondsLeft - 5)
   }
 
-  if (questionIndex < questions.length) {
-  questionIndex++;
-  nextQuestion();
+  questionIndex++
+
+  if (questionIndex >= questions.length) {
+    endGame();
   }
 
   else {
-    window.location.href = "scoreboard.html";
-  }
+    nextQuestion();
+}
+}
 
-
+function endGame() {
+  
+  finalScore = timerEl.innerText;
+  console.log(finalScore);
+  alert("Congratulations! You've completed the quiz!")
+  alert("Your final score was " + finalScore + "!")
+}
  
 
 
