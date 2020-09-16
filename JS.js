@@ -34,6 +34,7 @@ function titlePage() {
 
 function quizBegin() {
     showTimer();
+    nextQuestion();
 
 }
 
@@ -50,8 +51,57 @@ function showTimer() {
 }
 
 function nextQuestion() {
+  var currentQuestion = questions[questionIndex];
 
+  console.log(currentQuestion);
+
+  displayQuestionEl.textContent = "";
+  
+  mainDisplay.textContent = currentQuestion.title;
+
+  displayQuestionEl.append(mainDisplay);
+  var answerContainer = document.createElement("div");
+  
+    for (i = 0; i < currentQuestion.choices.length; i++) {
+      var choiceButton = document.createElement("button");
+          
+      choiceButton.textContent = currentQuestion.choices[i];
+
+      choiceButton.addEventListener("click", checkAnswer);
+
+      answerContainer.append(choiceButton);
+
+    }
+    displayQuestionEl.append(answerContainer);
+ 
 }
+
+function checkAnswer() {
+
+  //check for right answer
+
+  var answerText = event.target.textContent;
+  console.log(answerText);
+  if (answerText === questions[questionIndex].answer) {
+    console.log("Correct");}
+
+  else {
+    console.log("Incorrect");
+    secondsLeft = (secondsLeft - 5)
+  }
+
+  if (questionIndex < questions.length) {
+  questionIndex++;
+  nextQuestion();
+  }
+
+  else {
+    window.location.href = "scoreboard.html";
+  }
+
+
+ 
+
 
 startButton.addEventListener("click", quizBegin)
 
