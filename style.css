@@ -11,8 +11,18 @@ button {
    padding: 15px;
    text-align: center;
    font-size: 10px;
+   margin-left: 20px;
+   margin-right: 20px;
 }
 
 .hidden {
    display: none;
+}
+
+#submit {
+   margin-top: 10px; 
+}
+
+#userName {
+   margin-bottom: 10px;
 }

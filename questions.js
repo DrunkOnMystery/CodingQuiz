@@ -1,52 +1,27 @@
 var questions = [
     {
-      title: "Example Question 1:",
-      choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-      answer: "Choice 2"
+      title: "What year was Javascript created?",
+      choices: ["1994", "1995", "1996", "1997"],
+      answer: "1995"
     },
     {
-        title: "Example Question 2:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 4"
+        title: "In Javascript, an array can contain:",
+        choices: ["Strings", "Numbers", "Other Arrays", "All of the Above"],
+        answer: "All of the Above"
     },
     {
-        title: "Example Question 3:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 3"
+        title: "In a For Loop, 'I++' means",
+        choices: ["Increase I by 1", "Increase I by 2", "I must be larger", "Make I the largest Number"],
+        answer: "Increase I by 1"
     },
     {
-        title: "Example Question 4:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 3"
+        title: "Clearing the interval on a timer...",
+        choices: ["Starts the timer", "Increases the timer", "Stops the timer", "Does not effect the timer"],
+        answer: "Stops the timer"
     },
     {
-        title: "Example Question 5:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 2"
-    },
-    {
-        title: "Example Question 6:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 1"
-    },
-    {
-        title: "Example Question 7:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 4"
-    },
-    {
-        title: "Example Question 8:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 1"
-    },
-    {
-        title: "Example Question 9:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 3"
-    },
-    {
-        title: "Example Question 10:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-        answer: "Choice 3"
+        title: "[i] gives you...",
+        choices: ["The value of i", "The index of i", "The factorial of i", "The text of i"],
+        answer: "The index of i"
     },
   ];
