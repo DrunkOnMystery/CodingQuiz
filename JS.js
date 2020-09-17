@@ -1,8 +1,11 @@
+//Establish variables
+
 var displayQuestionEl = document.querySelector(".display-questions")
 var timerEl = document.querySelector(".timer")
 var resultsEl = document.querySelector(".results")
 var mainDisplay = document.createElement("h3");
 var startButton = document.createElement("button");
+var displayHighScoresEl = document.querySelector(".displayHighScores")
 
 const mostRecentScore = localStorage.getItem("mostRecentScore");
 const username = document.getElementById("username");
@@ -15,18 +18,18 @@ var userName;
 var highScores = [];
 
 
-
+//function to run upon opening title page
 function titlePage() {
   mainDisplay.textContent = "Press the button to begin the quiz"
   startButton.textContent = "Begin"
   displayQuestionEl.append(mainDisplay, startButton)
 }
-
+//function for when you hit the button to begin the quiz
 function quizBegin() {
   showTimer();
   nextQuestion();
 }
-
+//timer function
 function showTimer() {
   timerEl.textContent = secondsLeft;
 
@@ -40,7 +43,7 @@ function showTimer() {
     }
   }, 1 * 1000)
 }
-
+//function to run when you hit the button to go to the next question
 function nextQuestion() {
 
   var currentQuestion = questions[questionIndex];
@@ -68,9 +71,8 @@ function nextQuestion() {
 
 }
 
-
+ //check for right answer
 function checkAnswer() {
-  //check for right answer
 
   var answerText = event.target.textContent;
   console.log(answerText);
@@ -95,7 +97,7 @@ function checkAnswer() {
     nextQuestion();
   }
 }
-
+//function for endgame procedure if you finish or run out of time
 function endGame() {
 
   clearInterval(questionTimer);
@@ -108,7 +110,7 @@ function endGame() {
   mainDisplay.textContent = ("Final Score: " + finalScore);
   displayQuestionEl.append(mainDisplay, resultsEl, timerEl);
 
-
+//Endgame alerts
   if (finalScore > 0) {
     alert("Congratulations! You've completed the quiz! Your final score was " + finalScore + "! Enter your name to record your high score!")
   }
@@ -118,7 +120,7 @@ function endGame() {
   }
   form();
 }
-
+//function to create a submission form
 function form() {
 
   var form = document.createElement("form");
@@ -158,12 +160,12 @@ function form() {
 
     localStorage.setItem("key", JSON.stringify(score));
     window.location = "scoreboard.html";
+    
 
   });
 }
 
-
-
+//function for the start button at the beginning of the game
 startButton.addEventListener("click", quizBegin)
 
 
