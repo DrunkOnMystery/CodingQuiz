@@ -1,3 +1,5 @@
+//Javascript for displaying the final scoreboard properly
+
 var scoresList = document.querySelector(".displayHighScores");
 
 
