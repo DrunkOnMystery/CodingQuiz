@@ -16,6 +16,9 @@ var questionIndex = 0;
 var questionTimer;
 var userName;
 var highScores = [];
+var date = new Date();
+var timestamp = date.getTime();
+
 
 
 //function to run upon opening title page
@@ -31,11 +34,11 @@ function quizBegin() {
 }
 //timer function
 function showTimer() {
-  timerEl.textContent = secondsLeft;
+  timerEl.textContent = "There are " + secondsLeft + " seconds left";
 
   questionTimer = setInterval(function () {
     secondsLeft--
-    timerEl.textContent = secondsLeft;
+    timerEl.textContent = "There are " + secondsLeft + " seconds left";;
     if (secondsLeft <= 0) {
       clearInterval(questionTimer);
       secondsLeft = 0;
@@ -101,7 +104,7 @@ function checkAnswer() {
 function endGame() {
 
   clearInterval(questionTimer);
-  finalScore = timerEl.innerText;
+  finalScore = secondsLeft;
   console.log(finalScore);
 
   displayQuestionEl.textContent = "";
@@ -147,18 +150,22 @@ function form() {
       highScores = storedInfo;
     }
 
+
     if (userName === "") {
       displayMessage("You must enter a name");
     }
     var score = {
-      userScore: finalScore,
-      userName: form.name.value
+      userName: form.name.value,
+      userScore: finalScore
+    
     };
-
+    
     highScores.push(score);
     console.log(score);
 
-    localStorage.setItem("key", JSON.stringify(score));
+
+//set key to timestamp with variables for time, because I couldn't figure out how to stop overwriting my high scores otherwise
+    localStorage.setItem(timestamp, "Username: " + JSON.stringify(form.name.value) + " Score: " + finalScore);
     window.location = "scoreboard.html";
     
 
